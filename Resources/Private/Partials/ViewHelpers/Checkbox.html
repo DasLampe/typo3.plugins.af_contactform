@@ -1,0 +1,30 @@
+<f:form.validationResults for="{object}.{property}">
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="text-right middle" for="{property}">
+                <f:translate key="{object}.{property}">{object}.{property}</f:translate>
+            </label>
+        </div>
+        <div class="small-9 columns">
+            <f:form.checkbox property="{property}" id="{property}" value="1" />
+            <f:if condition="{validationResults.errors}">
+                <f:then>
+                    <p class="help-text">
+                        <f:for each="{validationResults.errors}" as="propertyError">
+                            <f:translate key="error.{propertyError.code}" arguments="{propertyError.arguments}">
+                                {propertyError.message} ({propertyError.code})
+                            </f:translate>
+                        </f:for>
+                    </p>
+                </f:then>
+                <f:else>
+                    <f:if condition="{hint}">
+                        <p class="help-text">
+                            <f:translate key="{object}.{property}.hint">{object}.{property}.hint</f:translate>
+                        </p>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </div>
+    </div>
+</f:form.validationResults>

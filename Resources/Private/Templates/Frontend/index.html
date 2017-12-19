@@ -1,0 +1,12 @@
+<f:form action="sendMail" name="formValue" object="{formValue}">
+    <f:render partial="ViewHelpers/TextField"
+              arguments="{property: 'fullname', object: 'formValue', mandatory: 'True'}" />
+    <f:render partial="ViewHelpers/TextField"
+              arguments="{property: 'email', object: 'formValue'}" />
+    <f:render partial="ViewHelpers/TextField"
+              arguments="{property: 'phone', object: 'formValue'}" />
+    <f:render partial="ViewHelpers/TextArea"
+              arguments="{property: 'message', object: 'formValue', mandatory: 'True', rows: 7}" />
+    <f:render partial="ViewHelpers/SubmitButton"
+              arguments="{value: 'Absenden'}" />
+</f:form>
