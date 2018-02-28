@@ -5,8 +5,8 @@ Simple contact form with Reply-To feature, if user set email address.
 ```
 config.tx_afcontactform {
     form = your_system@example.net
-    from_name = Your Systemname
-    to = your_reciever@example.net
+    fromName = Your Systemname
+    to = your_receiver@example.net
 }
 ```
 
