@@ -24,13 +24,11 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace DasLampe\Contactform\Controller;
+namespace DasLampe\AfContactform\Controller;
 
 
-use DasLampe\Contactform\Domain\Model\FormValue;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use DasLampe\AfContactform\Domain\Model\FormValue;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 class FrontendController extends ActionController
 {
@@ -47,7 +45,7 @@ class FrontendController extends ActionController
     }
 
     public function sendMailAction(FormValue $formValue) {
-        $settings = $GLOBALS['TSFE']->config['config']['tx_contactform.'];
+        $settings = $GLOBALS['TSFE']->config['config']['tx_afcontactform.'];
         $from = $settings['from'];
         $to = $settings['to'];
 
@@ -72,7 +70,7 @@ Sie können direkt auf diese Email antworten.");
         }
 
         $this->mailMessage
-            ->setFrom(array($from => "System"))
+            ->setFrom(array($from => $settings['fromName']))
             ->setTo(array($to))
             ->setSubject("Anfrage über das Kontaktformular")
             ->setBody($bodyMessage)

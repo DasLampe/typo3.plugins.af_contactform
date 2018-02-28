@@ -1,0 +1,5 @@
+config.tx_afcontactform {
+    from = {$config.tx_afcontactform.from}
+    fromName = {$config.tx_afcontactform.fromName}
+    to = {$config.tx_afcontactform.to}
+}

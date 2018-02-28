@@ -1,0 +1,38 @@
+{
+  "name": "daslampe/af-contactform",
+  "type": "typo3-cms-extension",
+  "description" : "Typo3 Form with Reply-To feature",
+  "homepage": "https://github.com/DasLampe/typo3.plugins.af_contactform",
+  "authors": [
+    {
+      "name": "Andre Flemming",
+      "email": "daslampe@lano-crew.org",
+      "homepage": "https://daslampe.lano-crew.org",
+      "role": "Developer"
+    }
+  ],
+  "license": ["GPL-3.0+"],
+  "keywords": ["TYPO3 CMS", "Contact", "Form", "Email", "Reply-To"],
+  "support": {
+    "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
+  },
+  "version": "1.1.0",
+  "require": {
+    "typo3/cms": "^7.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DasLampe\\AfContactform\\": "Classes/"
+    }
+  },
+  "replace": {
+    "daslampe/af-contactform": "self.version",
+    "af_contactform": "self.version"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev",
+      "dev-development": "1.0.x-dev"
+    }
+  }
+}

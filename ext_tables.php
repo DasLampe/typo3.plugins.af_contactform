@@ -6,5 +6,7 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'DasLampe.' . $_EXTKEY,  // vendor + extkey, seperated by a dot
     'Contactform',            // plugin name
-    'Contactform'  // backend title
+    'DasLampe - From with Reply-To'  // backend title
 );
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'DasLampe - Form with Reply-To');

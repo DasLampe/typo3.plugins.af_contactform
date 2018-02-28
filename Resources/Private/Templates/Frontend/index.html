@@ -8,5 +8,5 @@
     <f:render partial="ViewHelpers/TextArea"
               arguments="{property: 'message', object: 'formValue', mandatory: 'True', rows: 7}" />
     <f:render partial="ViewHelpers/SubmitButton"
-              arguments="{value: 'Absenden'}" />
+              arguments="{object: 'formValue', name: 'submitButton'}" />
 </f:form>

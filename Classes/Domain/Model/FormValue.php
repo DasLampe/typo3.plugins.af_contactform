@@ -24,7 +24,7 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace DasLampe\Contactform\Domain\Model;
+namespace DasLampe\AfContactform\Domain\Model;
 
 
 class FormValue

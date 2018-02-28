@@ -23,6 +23,10 @@
             <target>Ihre Nachricht</target>
          </trans-unit>
 
+         <trans-unit id="formValue.submitButton" xml:space="preserve">
+            <source>Send email</source>
+            <target>Absenden</target>
+         </trans-unit>
       </body>
    </file>
 </xliff>
