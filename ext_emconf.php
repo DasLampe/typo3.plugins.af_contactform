@@ -4,7 +4,7 @@ $EM_CONF[$_EXTKEY] = array(
     'description' => 'Contact form with Reply-To feature',
     'category' => 'plugin',
     'shy' => 0,
-    'version' => '1.1.0',
+    'version' => '1.1.1',
     'module' => '',
     'state' => 'beta',
     'uploadfolder' => 0,
@@ -18,8 +18,8 @@ $EM_CONF[$_EXTKEY] = array(
         array(
             'depends' =>
                 array(
-                    'php' => '5.4-5.9999',
-                    'typo3' => '7.6.0 - 7.6.999',
+                    'php' => '5.4-7.2.9999',
+                    'typo3' => '7.6.0 - 8.9.999',
                 ),
             'conflicts' =>
                 array(),

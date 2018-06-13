@@ -16,9 +16,9 @@
   "support": {
     "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "require": {
-    "typo3/cms": "^7.6.0"
+    "typo3/cms": "7.6.0 - 8.9"
   },
   "autoload": {
     "psr-4": {
