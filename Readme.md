@@ -10,9 +10,11 @@ config.tx_afcontactform {
 }
 ```
 
+## Language: Switch to informal german
+Set ```config.language = informal.de`` in your Typo3 Template. 
+
 ## Known issues
 - No check for successful sending
-- Hardcoded message text
 - Hardcoded fields
 
 ## Contact

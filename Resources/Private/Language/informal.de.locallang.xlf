@@ -5,7 +5,7 @@
       <body>
          <trans-unit id="formValue.fullname" xml:space="preserve">
             <source>Full name</source>
-            <target>Ihr Name</target>
+            <target>Dein Name</target>
          </trans-unit>
 
          <trans-unit id="formValue.email" xml:space="preserve">
@@ -20,7 +20,7 @@
 
          <trans-unit id="formValue.message" xml:space="preserve">
             <source>Your Message</source>
-            <target>Ihre Nachricht</target>
+            <target>Deine Nachricht</target>
          </trans-unit>
 
          <trans-unit id="formValue.submitButton" xml:space="preserve">
@@ -28,10 +28,10 @@
             <target>Absenden</target>
          </trans-unit>
 
-         <trans-unit id="sendMsg.successful" xml:space="preserve">
-            <source>Your message was successfully sent.</source>
-            <target>Ihre Nachricht wurde erfolgreich versendet.</target>
-         </trans-unit>
+          <trans-unit id="sendMsg.successful" xml:space="preserve">
+             <source>Your message was successfully sent.</source>
+             <target>Deine Nachricht wurde erfolgreich versendet.</target>
+          </trans-unit>
       </body>
    </file>
 </xliff>

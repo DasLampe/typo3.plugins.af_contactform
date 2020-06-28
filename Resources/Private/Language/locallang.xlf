@@ -22,6 +22,10 @@
          <trans-unit id="formValue.submitButton" xml:space="preserve">
             <source>Send email</source>
          </trans-unit>
+
+         <trans-unit id="sendMsg.successful" xml:space="preserve">
+            <source>Your message was successfully sent.</source>
+         </trans-unit>
       </body>
    </file>
 </xliff>
