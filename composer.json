@@ -5,7 +5,7 @@
   "homepage": "https://github.com/DasLampe/typo3.plugins.af_contactform",
   "authors": [
     {
-      "name": "Andre Flemming",
+      "name": "André Flemming",
       "email": "daslampe@lano-crew.org",
       "homepage": "https://daslampe.lano-crew.org",
       "role": "Developer"
@@ -16,9 +16,10 @@
   "support": {
     "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
   },
-  "version": "1.1.1",
+  "version": "1.2.0",
   "require": {
-    "typo3/cms": "7.6.0 - 8.9"
+    "typo3/cms": "7.6.0 - 8.9",
+    "php": "5.4.*-7.4.*"
   },
   "autoload": {
     "psr-4": {
