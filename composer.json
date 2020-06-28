@@ -16,9 +16,9 @@
   "support": {
     "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
   },
-  "version": "1.2.0",
+  "version": "1.2.1",
   "require": {
-    "typo3/cms": "7.6.0 - 8.9",
+    "typo3/cms": "7.6.0 - 8.9.*",
     "php": "5.4.*-7.4.*"
   },
   "autoload": {
@@ -32,8 +32,8 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0.x-dev",
-      "dev-development": "1.0.x-dev"
+      "dev-master": "1.x.x-dev",
+      "dev-development": "1.x.x-dev"
     }
   }
 }
