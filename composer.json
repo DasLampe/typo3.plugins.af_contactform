@@ -16,24 +16,54 @@
   "support": {
     "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
   },
-  "version": "1.2.1",
+  "version": "1.3.0",
   "require": {
-    "typo3/cms": "7.6.0 - 8.9.999",
+    "typo3/cms-core": "7.6.0 - 10.4.*",
     "php": "5.4 - 7.4"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "require-dev": {
+    "typo3/testing-framework": "^6.2",
+    "typo3/cms-frontend": "^10.4",
+    "typo3/cms-install": "^10.4",
+    "typo3/cms-about": "^10.4",
+    "typo3/cms-fluid-styled-content": "^10.4",
+    "phpspec/prophecy": "~1.0",
+    "codeception/codeception": "^4.1",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/module-asserts": "^1.2"
   },
   "autoload": {
     "psr-4": {
-      "DasLampe\\AfContactform\\": "Classes/"
+      "DasLampe\\AfContactform\\": "Classes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DasLampe\\AfContactform\\": "Tests"
     }
   },
   "replace": {
-    "daslampe/af-contactform": "self.version",
-    "af_contactform": "self.version"
+    "daslampe/af-contactform": "self.version"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+    ]
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.2.x-dev",
-      "dev-development": "1.2.x-dev"
+      "dev-master": "1.x-dev"
+    },
+    "typo3/cms": {
+      "app-dir": ".Build",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web",
+      "extension-key": "af_contactform",
+      "composer-mode": false
     }
   }
 }
