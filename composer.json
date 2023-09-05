@@ -11,29 +11,38 @@
       "role": "Developer"
     }
   ],
-  "license": ["GPL-3.0+"],
+  "license": ["GPL-3.0-or-later"],
   "keywords": ["TYPO3 CMS", "Contact", "Form", "Email", "Reply-To"],
   "support": {
     "issues": "https://github.com/DasLampe/typo3.plugins.af_contactform/issues"
   },
-  "version": "1.2.1",
   "require": {
-    "typo3/cms": "7.6.0 - 8.9.999",
-    "php": "5.4 - 7.4"
+    "typo3/cms-core": "^11.5",
+    "php": "^8.0.0"
+  },
+  "require-dev": {
+    "typo3/coding-standards": "^0.6.0"
   },
   "autoload": {
     "psr-4": {
       "DasLampe\\AfContactform\\": "Classes/"
     }
   },
-  "replace": {
-    "daslampe/af-contactform": "self.version",
-    "af_contactform": "self.version"
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin",
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
+    }
   },
   "extra": {
-    "branch-alias": {
-      "dev-master": "1.2.x-dev",
-      "dev-development": "1.2.x-dev"
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "extension-key": "af_contactform",
+      "composer-mode": true,
+      "ignore-as-root": true,
+      "web-dir": ".Build/Web"
     }
   }
 }

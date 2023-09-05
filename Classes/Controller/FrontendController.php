@@ -1,79 +1,70 @@
 <?php
-/***************************************************************
- *
- *  Copyright notice
- *
- *  (c) 2017 Andre Flemming <andre(at)scoutnet.de>, ScoutNet
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  open source software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 
 namespace DasLampe\AfContactform\Controller;
 
-
 use DasLampe\AfContactform\Domain\Model\FormValue;
+use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class FrontendController extends ActionController
 {
     /**
-     * @var \TYPO3\CMS\Core\Mail\MailMessage
-     * @inject
+     * @var MailMessage
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected $mailMessage;
+    protected MailMessage $mailMessage;
 
-    public function indexAction() {
-        $value = new FormValue();
-        $this->view->assign("formValue", $value);
-        //Only Template
+    /**
+     * @param MailMessage $mailMessage
+     */
+    public function injectMailMessage(MailMessage $mailMessage): void
+    {
+        $this->mailMessage = $mailMessage;
     }
 
-    public function sendMailAction(FormValue $formValue) {
-        $settings = $GLOBALS['TSFE']->config['config']['tx_afcontactform.'];
-        $from = $settings['from'];
-        $to = $settings['to'];
+    public function indexAction(): ResponseInterface
+    {
+        $value = new FormValue();
+        $this->view->assign('formValue', $value);
+        return $this->htmlResponse();
+    }
 
-        $bodyMessage = sprintf("Guten Tag,
-es wurde eine Anfrage über das Kontaktformular gestellt. Folgende Daten wurden übermittelt
+    public function sendMailAction(FormValue $formValue): ResponseInterface
+    {
+        $from = $this->settings['from'];
+        $to = $this->settings['to'];
 
-Name: %s
-Telefonnummer: %s
-Emailadresse: %s
-Nachricht:
+        $bodyMessage = sprintf(
+            "Guten Tag,
+es wurde eine Anfrage über das Kontaktformular gestellt. Folgende Daten wurden übermittelt:\n\n
+
+Name: %s \n
+Telefonnummer: %s \n
+Emailadresse: %s \n
+Nachricht: \n
 %s",
             $formValue->getFullname(),
             $formValue->getPhone(),
             $formValue->getEmail(),
-            $formValue->getMessage());
+            $formValue->getMessage()
+        );
 
-        if(!empty($formValue->getEmail())) {
-            $bodyMessage = $bodyMessage . sprintf("
-            
-Sie können direkt auf diese Email antworten.");
-            $this->mailMessage->setReplyTo(array($formValue->getEmail() => $formValue->getFullname()));
+        if (!empty($formValue->getEmail())) {
+            $bodyMessage = $bodyMessage . '
+          
+Sie können direkt auf diese Email antworten.';
+            $this->mailMessage->setReplyTo([$formValue->getEmail() => $formValue->getFullname()]);
         }
 
         $this->mailMessage
-            ->setFrom(array($from => $settings['fromName']))
-            ->setTo(array($to))
-            ->setSubject("Anfrage über das Kontaktformular")
-            ->setBody($bodyMessage)
+            ->from(new Address($from, $this->settings['fromName']))
+            ->to(new Address($to))
+            ->subject('Anfrage über das Kontaktformular')
+            ->text($bodyMessage)
             ->send();
+
+        return $this->htmlResponse();
     }
 }

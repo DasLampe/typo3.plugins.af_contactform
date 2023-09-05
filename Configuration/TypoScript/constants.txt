@@ -1,5 +1,7 @@
-config.tx_afcontactform {
-    from = from@example.net
-    fromName = System
-    to = to@example.net
+plugin.tx_afcontactform {
+    settings {
+        from = from@example.net
+        fromName = System
+        to = to@example.net
+    }
 }

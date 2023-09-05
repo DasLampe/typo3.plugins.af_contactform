@@ -1,5 +1,7 @@
-config.tx_afcontactform {
-    from = {$config.tx_afcontactform.from}
-    fromName = {$config.tx_afcontactform.fromName}
-    to = {$config.tx_afcontactform.to}
+plugin.tx_afcontactform {
+    settings {
+        from = {plugin.tx_afcontactform.from}
+        fromName = {$plugin.tx_afcontactform.fromName}
+        to = {$plugin.tx_afcontactform.to}
+    }
 }

@@ -26,36 +26,35 @@
 
 namespace DasLampe\AfContactform\Domain\Model;
 
-
 class FormValue
 {
     /**
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
-    protected $fullname;
+    protected string $fullname;
 
     /**
      * @var string
-     * @validate EmailAddress
+     * @TYPO3\CMS\Extbase\Annotation\Validate("EmailAddress")
      */
-    protected $email;
+    protected string $email;
 
     /**
      * @var string
      */
-    protected $phone;
+    protected string $phone;
 
     /**
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
-    protected $message;
+    protected string $message;
 
     /**
      * @return string
      */
-    public function getFullname()
+    public function getFullname(): string
     {
         return $this->fullname;
     }
@@ -63,7 +62,7 @@ class FormValue
     /**
      * @param string $fullname
      */
-    public function setFullname($fullname)
+    public function setFullname(string $fullname): void
     {
         $this->fullname = $fullname;
     }
@@ -71,7 +70,7 @@ class FormValue
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -79,7 +78,7 @@ class FormValue
     /**
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -87,7 +86,7 @@ class FormValue
     /**
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): string
     {
         return $this->phone;
     }
@@ -95,7 +94,7 @@ class FormValue
     /**
      * @param string $phone
      */
-    public function setPhone($phone)
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -103,7 +102,7 @@ class FormValue
     /**
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
@@ -111,7 +110,7 @@ class FormValue
     /**
      * @param string $message
      */
-    public function setMessage($message)
+    public function setMessage(string $message): void
     {
         $this->message = $message;
     }
